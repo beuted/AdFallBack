@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ads Fallback</title>
+</head>
+<body>
+    <div class="demo-banner">
+<!-- PUB 1 => cas.criteo.com plain text yolo-->
+        <div id="criteo_ad">
+            <script>
+                // <![CDATA[
+                document.MAX_ct0 ='INSERT_CLICK_URL';
+                var m3_u = (location.protocol=='https:'?'https://cas.criteo.com/delivery/ajs.php?':'http://cas.criteo.com/delivery/ajs.php?');
+                var m3_r = Math.floor(Math.random()*99999999999);
+                document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+                document.write ("zoneid=43737&nolog=1");
+                document.write ('&cb=' + m3_r);
+                if (document.MAX_used != ',') document.write ("&exclude=" + document.MAX_used);
+                document.write (document.charset ? '&charset='+document.charset : (document.characterSet ? '&charset='+document.characterSet : ''));
+                document.write ("&loc=" + escape(window.location));
+                if (document.referrer) document.write ("&referer=" + escape(document.referrer));
+                if (document.context) document.write ("&context=" + escape(document.context));
+                if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+                document.write ("&ct0=" + escape(document.MAX_ct0));
+                }
+                if (document.mmm_fo) document.write ("&mmm_fo=1");
+                document.write ("'></scr"+"ipt>");
+                // ]]>
+            </script>
+        </div>
+
+<!-- PUB 2 => cas.criteo.com avec le referer google.fr-->
+        <!-- <script type="text/javascript" src="http://cas.criteo.com/delivery/ajs.php?zoneid=43737&amp;nolog=1&amp;cb=29687861982&amp;exclude=undefined&amp;charset=UTF-8&amp;loc=http%3A//www.criteo.com/demo/&amp;referer=https%3A//www.google.fr/"></script> -->
+
+<!-- PUB 3 (marche pas) => cto_iframe ??? -->
+        <!-- <iframe id="cto_iframe_86152992b4" frameborder="0" allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" scrolling="no" vspace="0" width="300px" height="250px"></iframe> -->
+
+<!-- PUB 4 => cas.criteo.com -->
+        <!-- <script src="http://cas.criteo.com/delivery/ajs.php?zoneid=43737&amp;nolog=1&amp;cb=61537055973&amp;exclude=undefined&amp;charset=UTF-8&amp;loc=http%3A//www.criteo.com/demo"></script> -->
+
+<!-- PUB 5 (marche pas) -->
+        <!-- <iframe id="cto_iframe_d784702de1" frameborder="0" allowtransparency="true" hspace="0" marginwidth="0" marginheight="0" scrolling="no" vspace="0" width="300px" height="250px"></iframe> -->
+
+<!-- PUB 6 (marche bof) => pub flash -->
+        <!-- <div id="maine31d418706" style="position: relative; padding: 0; width: 300px; height: 250px; background-color: #ddd; cursor: pointer; overflow: hidden; display: inline-block;">
+            <div id="privacy_e31d418706_0">
+                <a class="privacy_out" href="http://info.criteo.com/pac/privacy/informations?infonorm=3&amp;partner=11264&amp;campaignid=39306&amp;zoneid=43737&amp;bannerid=1779600&amp;displayid=e31d418706&amp;uaCap=0" target="_blank"> <img style="width: 19px; height: 15px; position: relative;" src="http://static.eu.criteo.net/flash/icon/nai_small.png" alt=""> </a> <a class="privacy_hover" style="display: none;" href="http://info.criteo.com/pac/privacy/informations?infonorm=3&amp;partner=11264&amp;campaignid=39306&amp;zoneid=43737&amp;bannerid=1779600&amp;displayid=e31d418706&amp;uaCap=0" target="_blank"> <img style="width: 77px; height: 15px;" src="http://static.eu.criteo.net/flash/icon/nai_big.png" alt=""> </a>
+            </div>
+            <script>
+                // <![CDATA[
+                (function() { var applyPrivacy = function(container, clickable) { var onContainer = container.children[1]; var offContainer = container.children[0]; var timeout = 0; var setVisibility = function(isOn, ignoreTimeout) { return function() { if (timeout) { clearTimeout(timeout); } if (!isOn && !ignoreTimeout) { timeout = setTimeout(setVisibility(false, true), 100); } else { onContainer.style.display = isOn ? 'block' : 'none'; offContainer.style.display = !isOn ? 'block' : 'none';  } }; };  container.onmouseout = setVisibility(false); container.onmouseover = setVisibility(true);  };  applyPrivacy(document.getElementById('privacy_e31d418706_0'), true);  })();
+                // ]]>
+            </script>
+            <object type="application/x-shockwave-flash" data="http://static.eu.criteo.net/flash/g2/sgl/sgl_v3.9_300x250.swf" width="300" height="250" id="cto300x250_dive31d418706"><param name="wmode" value="opaque"><param name="allowScriptAccess" value="always"><param name="flashvars" value="policy=0&amp;ifn=ife31d418706&amp;swif_size=300x250&amp;tmpl=19&amp;swif_imgactive=1&amp;swif_imgconf=6.85&amp;ctoFlashWidgetServer=http://caw.fr.eu.criteo.com/flash/display&amp;partner=11264&amp;cawqs=ckmode%3D9%26openx%3Dhttp%253a%252f%252fcas.fr.eu.criteo.com%252fdelivery%252fck.php%253fckmode%253d9%2526cb%253de31d418706%2526bannerid%253d1779600%2526nlsid%253d39306%2526c1%253doBGTXDXo9lbJGGwAzCOICrYM43vGHgvoAW2PwGykPQmjZnQh_JrsrBjKrInCpREt_Hr2aJBmwyIK7hIWc7w7BiwS7nANsw4Z5qGxWXTcIzjeftU9j0aZgTzxYIm8CgGNLH9GMZwmKtdYS1bXqMWa5NjvmtUgxbG_pJJF9xUkLWRdlbMbjwK_cbIxQcNT1Yzfybc4zDdqjyi81HQwOtOI4_TcpNL4pUmnyVamv9bYWIs%2526c2%253dF6ldL1cOarCSHS9Oe_vuZvU--mdWN2SAuR0kjv5iapeta9HFxUGqq7QTkf2Urkd22-vwk6ynLSVM506W-o1Qkd3S58G-1lj9%2526maxdest%253d%252525OPENX%252525%26displayid%3De31d418706%26bannerid%3D1779600%26c1%3DyesJOgpt3-mZGTmM2eZXqa0qr1ymmG1wsb6e5-y69nS39po8ARfhUFkNkj259ce5PlgzXJ6uynjuLC_zfkVUpPVXbmJY8jsuAP9GIKDs3Qk4mVW8XwBbP4783pWG_-NA7tFLqAgiIetjM5MP4Trfz5W-_FzqTE9YXAQjs2YMOK_r5gMFqn6VZY2Us0S1hRPEPcc3KpRkd545gCX6DyLSL1oF6LzJoS7RCwSAZVu2zFH6FwyRinG5ywidGZotYLgbzXuw2bA2gjs%26rk%3DB8C0D08C66600EB066A785E94E2BAD7276D0CDBF%26c2%3DF6ldL1cOarCSHS9Oe_vuZvU--mdWN2SA95-juyv3mOhrubPWIwhpgkB-2kfS9siuJo4zdiJH-ats5ZDn66asdKMSNDV8iCroWj7d5uLcX0YGA-L56afJUA"></object>
+            <script src="http://static.eu.criteo.net/flash/criteoflash_ld2.js"></script>
+            <script>
+                // <![CDATA[
+                (function() {
+                var cto_fv = {};
+                cto_fv.policy="0";
+                cto_fv.ifn="ife31d418706";
+                cto_fv.swif_size="300x250";
+                cto_fv.tmpl="19";
+                cto_fv.swif_imgactive="1";
+                cto_fv.swif_imgconf="6.85";
+                cto_fv.ctoFlashWidgetServer="http://caw.fr.eu.criteo.com/flash/display";
+                cto_fv.partner="11264";
+                cto_fv.cawqs="ckmode%3D9%26openx%3Dhttp%253a%252f%252fcas.fr.eu.criteo.com%252fdelivery%252fck.php%253fckmode%253d9%2526cb%253de31d418706%2526bannerid%253d1779600%2526nlsid%253d39306%2526c1%253doBGTXDXo9lbJGGwAzCOICrYM43vGHgvoAW2PwGykPQmjZnQh_JrsrBjKrInCpREt_Hr2aJBmwyIK7hIWc7w7BiwS7nANsw4Z5qGxWXTcIzjeftU9j0aZgTzxYIm8CgGNLH9GMZwmKtdYS1bXqMWa5NjvmtUgxbG_pJJF9xUkLWRdlbMbjwK_cbIxQcNT1Yzfybc4zDdqjyi81HQwOtOI4_TcpNL4pUmnyVamv9bYWIs%2526c2%253dF6ldL1cOarCSHS9Oe_vuZvU--mdWN2SAuR0kjv5iapeta9HFxUGqq7QTkf2Urkd22-vwk6ynLSVM506W-o1Qkd3S58G-1lj9%2526maxdest%253d%252525OPENX%252525%26displayid%3De31d418706%26bannerid%3D1779600%26c1%3DyesJOgpt3-mZGTmM2eZXqa0qr1ymmG1wsb6e5-y69nS39po8ARfhUFkNkj259ce5PlgzXJ6uynjuLC_zfkVUpPVXbmJY8jsuAP9GIKDs3Qk4mVW8XwBbP4783pWG_-NA7tFLqAgiIetjM5MP4Trfz5W-_FzqTE9YXAQjs2YMOK_r5gMFqn6VZY2Us0S1hRPEPcc3KpRkd545gCX6DyLSL1oF6LzJoS7RCwSAZVu2zFH6FwyRinG5ywidGZotYLgbzXuw2bA2gjs%26rk%3DB8C0D08C66600EB066A785E94E2BAD7276D0CDBF%26c2%3DF6ldL1cOarCSHS9Oe_vuZvU--mdWN2SA95-juyv3mOhrubPWIwhpgkB-2kfS9siuJo4zdiJH-ats5ZDn66asdKMSNDV8iCroWj7d5uLcX0YGA-L56afJUA";
+                var cto_p = {};
+                cto_p.wmode="opaque";
+                cto_p.allowScriptAccess="always";
+                var cto_a = { };
+                var flp = [true, "http://static.eu.criteo.net/flash/g2/sgl/sgl_v3.9_300x250.swf", "cto300x250_dive31d418706", "300", "250", "9.0.0", "http://static.eu.criteo.net/flash/expressinstall/expressinstall_fr.swf", cto_fv, cto_p, cto_a];
+                var octoswfloader = typeof ctoswfloader!="undefined" ? ctoswfloader : typeof swfobject!="undefined" ? swfobject : null;
+                if (octoswfloader != null){octoswfloader.embedSWF(flp[1],flp[2],flp[3],flp[4],flp[5],flp[6],flp[7],flp[8],flp[9]);flp[0]=false;}
+                else if (typeof ctoFA !="undefined" && ctoFA instanceof Array) { ctoFA.push(flp); }
+                else { ctoFA = [flp]; }
+                })();
+                // ]]>
+            </script>
+            <div style="position: absolute; left: 0px; top: 0px; visibility: hidden;">
+                <iframe id="ife31d418706" name="ife31d418706" width="1px" height="1px"></iframe>
+            </div>
+        </div> -->
+
+  <!-- PUB 7 (marche pas) => pub beacon :o :o omg hype-->
+       <!--  <div id="beacon_e31d418706" style="position: absolute; left: 0px; top: 0px; visibility: hidden;">
+            <img src="https://surveymonkey.sp1.convertro.com/view/vt/v1/surveymonkey/1/cvo.gif?cvosrc=retargeting.criteo.39306" alt="Advertisement" width="1" height="1" border="0">
+            <img src="http://cas.fr.eu.criteo.com/delivery/lg.php?ckmode=9&amp;cb=e31d418706&amp;loc=http%3a%2f%2fwww.criteo.com%2fdemo&amp;c1=oJ6YjBfW3D1liR2PxfwS5uhhdD_lHtjoX8LVJ3re-VG5Dk1XmLLZ_x9f4SuLRZ6R-rmnK_tp5v3N2byTsi5Pe7C2U2xh4WBUdukPlta-BwBQeosdSQyjafkgqbQvjfXkHNq7K6l-NR8TRP8y7WYaiAKOMPWWtN-oVN8-9XKUNknUQLWYWCmnK1jsKJ_A7SKQ3Tp0DUGxEhuZEpSRZQDJkWVZMmmSBfoR&amp;c2=VtXMEwGkGXCyvpDOxEpDyr7_LYhNojUM" alt="" width="0" height="0">
+            <script>
+                // <![CDATA[
+                (function() {
+                    var applyAltText = function(container) {
+                      if (container != null) {
+                        var images = container.getElementsByTagName('img');
+                        for(var i = 0; i < images.length; ++i) {
+                          if(!images[i].getAttribute('alt')) {
+                            images[i].setAttribute('alt', '');
+                          }
+                        }
+                      }
+                    };
+                    applyAltText(document.getElementById('maine31d418706'));
+                    applyAltText(document.getElementById('beacon_e31d418706'));
+                    applyAltText(document.getElementById('cto_banner_content'));
+                  })();
+                // ]]>
+            </script>
+        </div>
+    </div> -->
+
+
+<!-- Mon code de ad passing -->
+
+<script>
+//var youtubeDiv = document.querySelector('iframe[src^="http://www.youtube.com"]');
+    window.onload = function(){
+        setTimeout(function() {
+            // We are targeting the first banner ad of AdSense
+            var ad = document.querySelector("div#criteo_ad");
+            var ad_iframe = document.querySelector("div#criteo_ad [id^='cto_iframe_']");
+
+            // If the ad contains no innerHTML, ad blockers are at work
+            if (ad && !ad_iframe) {
+
+                // Since ad blocks hide ads using CSS too
+                ad.style.cssText = 'display:block !important';
+
+                // You can put any text, image or even IFRAME tags here
+                ad.innerHTML = '<img src="fallback.jpg">';
+            }
+        }, 2000); // The ad blocker check is performed 2 seconds after the page load
+    };
+</script>
+</body>
+</html>
